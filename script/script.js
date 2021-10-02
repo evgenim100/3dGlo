@@ -47,20 +47,21 @@ const toggleMenu = () => {
 
   const handlerMenu = () => {
     if (!menu.style.transform || menu.style.transform === 'translate(-100%)'){
+      if (document.documentElement.clientWidth > 768) {
       let i = -100;
       let  timer = setInterval(function() {
               i++;
               menu.style.transform = 'translate(' + i + '%)';
           if (i == 100) {clearInterval(timer)};
-      }, 5);
-      //  menu.style.transform = 'translate(0%)';
+      }, 5);} else {menu.style.transform = 'translate(100%)';};
     } else {
+      if (document.documentElement.clientWidth > 768) {
       let i = 100;
       let  timer = setInterval(function() {
               i--;
               menu.style.transform = 'translate(' + i + '%)';
           if (i == -100) {clearInterval(timer)};
-      }, 5);
+      }, 5);} else {menu.style.transform = 'translate(-100%)';};
       // menu.style.transform = 'translate(-100%)';
     };
   }
